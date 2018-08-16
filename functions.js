@@ -1,5 +1,12 @@
+// show your last 20 tweets and when they were created at in your terminal/bash window
 function getTweets(client) {
-  var params = { q: '#nodejs', count: 20, result_type: 'recent', lang: 'en' };
+  var params = {
+    q: '#nodejs',
+    screen_name: 'asingh_22g',
+    count: 20,
+    result_type: 'recent',
+    lang: 'en'
+  };
   client.get('statuses/user_timeline', params, function(
     error,
     tweets,
@@ -17,14 +24,20 @@ function getTweets(client) {
   });
 }
 
+// This will show the following information about the song in your terminal/bash window
+//      * Artist(s)
+//      * The song's name
+//      * A preview link of the song from Spotify
+//      * The album that the song is from
 function getSong(spotify, options) {
   var songName = options;
 
   if (songName === '') {
-    songName = 'The Sign';
+    songName = 'The+Sign';
   } else {
     songName = songName.split(' ').join('+');
   }
+  console.log(songName);
 
   spotify.search({ type: 'track', query: songName, limit: 1 }, function(
     err,
@@ -55,6 +68,14 @@ function getSong(spotify, options) {
   });
 }
 
+// * Title of the movie.
+//        * Year the movie came out.
+//        * IMDB Rating of the movie.
+//        * Rotten Tomatoes Rating of the movie.
+//        * Country where the movie was produced.
+//        * Language of the movie.
+//        * Plot of the movie.
+//        * Actors in the movie.
 function getMovie(request, options) {
   var movieName = options;
 
@@ -74,7 +95,6 @@ function getMovie(request, options) {
     // If the request is successful
     // error first callback
     if (!error && response.statusCode === 200) {
-      
       var movieData = JSON.parse(body);
       if (movieData.hasOwnProperty('Error')) {
         console.log(movieData.Error);
@@ -109,11 +129,17 @@ function getMovie(request, options) {
     }
   });
 }
-function obey() {}
+
+// run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`
+function runCommandInFile(spotify, fs) {
+  fs.readFile("random.txt", "utf8", function(error, data){
+    getSong(spotify, data.split(",")[1])
+  })
+}
 
 module.exports = {
   getTweets: getTweets,
   getSong: getSong,
   getMovie: getMovie,
-  obey: obey
+  runCommandInFile: runCommandInFile
 };
