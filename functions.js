@@ -33,37 +33,45 @@ function getSong(spotify, options) {
   var songName = options;
 
   if (songName === '') {
-    songName = 'The+Sign';
+    songName = 'the sign';
   } else {
-    songName = songName.split(' ').join('+');
+    songName = songName.toLowerCase();
   }
-  console.log(songName);
 
-  spotify.search({ type: 'track', query: songName, limit: 1 }, function(
-    err,
-    data
-  ) {
+  spotify.search({ type: 'track', query: songName }, function(err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
     }
 
-    var data = {
-      'Artists(s)': data.tracks.items[0].artists.map(d => {
-        return d.name;
-      }),
-      "Song's name": data.tracks.items[0].name,
-      'Preview link': data.tracks.items[0].preview_url,
-      Album: data.tracks.items[0].album.name
-    };
+    // match song name to 20 results that spotify comes back with
+    var results = data.tracks.items.map(d => {
+      return d.name.toLowerCase();
+    });
 
-    // display data
-    console.log('----------------------');
-    console.log('----------------------');
-    for (var item in data) {
-      console.log(`${item}:`);
-      console.log(`${data[item]}`);
+    // dispay the first one that matches
+    var index = results.indexOf(songName);
+
+    if (index === -1) {
+      console.log('No song found!');
+    } else {
+      var data = {
+        'Artists(s)': data.tracks.items[index].artists.map(d => {
+          return d.name;
+        }),
+        "Song's name": data.tracks.items[index].name,
+        'Preview link': data.tracks.items[index].preview_url,
+        Album: data.tracks.items[index].album.name
+      };
+
+      // display data
       console.log('----------------------');
       console.log('----------------------');
+      for (var item in data) {
+        console.log(`${item}:`);
+        console.log(`${data[item]}`);
+        console.log('----------------------');
+        console.log('----------------------');
+      }
     }
   });
 }
@@ -120,8 +128,14 @@ function getMovie(request, options) {
         };
 
         // display data
+        console.log('----------------------');
+        console.log('----------------------');
+        // display data
         for (var item in data) {
-          console.log(`${item}: ${data[item]}`);
+          console.log(`${item}:`);
+          console.log(`${data[item]}`);
+          console.log('----------------------');
+          console.log('----------------------');
         }
       }
     } else {
@@ -132,9 +146,14 @@ function getMovie(request, options) {
 
 // run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`
 function runCommandInFile(spotify, fs) {
-  fs.readFile("random.txt", "utf8", function(error, data){
-    getSong(spotify, data.split(",")[1])
-  })
+  fs.readFile('random.txt', 'utf8', function(error, data) {
+    var songName = data
+      .split(',')[1]
+      .toString()
+      .toLowerCase()
+      .replace(/"/g, '');
+    getSong(spotify, songName);
+  });
 }
 
 module.exports = {
