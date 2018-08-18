@@ -9,7 +9,7 @@ $ git clone https://github.com/singha53/node-liri-app.git
 $ cd node-liri-app/
 ```
 
-## Getting started
+## Walkthroughs
 
 1) Return my recent 20 tweets (from @asingh_22g)
 
