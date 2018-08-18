@@ -25,6 +25,52 @@ Fri Jun 22 00:09:43 +0000 2018: RT @DavidFajgenbaum: Excited to see our new @Som
 Wed Nov 22 12:39:42 +0000 2017: @jeremyhirota Lol yes it is. 😀 Congrats on your new CRC @jeremyhirota
 -----------------------
 ```
+2a) Search for a song from Spotify (returns artist(s), song's name, song url and albumn)
+
+```shell
+$ node liri.js spotify-this-song thriller
+----------------------
+----------------------
+Artists(s):
+Michael Jackson
+----------------------
+----------------------
+Song's name:
+Thriller
+----------------------
+----------------------
+Preview link:
+https://p.scdn.co/mp3-preview/9f288fba4d3380b1ae25e7f88a2054d7fac0bf2d?cid=06eef2ced23844c39eabaa503f3e14d8
+----------------------
+----------------------
+Album:
+Scream
+----------------------
+----------------------
+```
+2b) default behaviour if no song is inputted
+
+```shell
+$ node liri.js spotify-this-song
+----------------------
+----------------------
+Artists(s):
+Ace of Base
+----------------------
+----------------------
+Song's name:
+The Sign
+----------------------
+----------------------
+Preview link:
+https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=06eef2ced23844c39eabaa503f3e14d8
+----------------------
+----------------------
+Album:
+The Sign (US Album) [Remastered]
+----------------------
+----------------------
+```
 
 ## Scripting/Programming Languages
 
