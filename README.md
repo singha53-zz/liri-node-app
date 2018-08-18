@@ -2,17 +2,28 @@
 
 A command line interface application using nodeJS, LIRI: LIRI is a _Language_ Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 
-## Installing / Getting started
-
-Simply click [here](http://amritsingh.ca/RPS-Multiplayer/) to to begin searching!
-
-## Developing
-
-Feel free to modify/expand upon my code for your purposes!
+## Installing
 
 ```shell
-git clone https://github.com/singha53/RPS-Multiplayer.git
-cd RPS-Multiplayer/
+$ git clone https://github.com/singha53/node-liri-app.git
+$ cd node-liri-app/
+```
+
+## Getting started
+
+1) Return my recent 20 tweets (from @asingh_22g)
+
+```shell
+$ node liri.js my-tweets
+-----------------------
+Fri Jun 22 00:09:43 +0000 2018: RT @DavidFajgenbaum: Excited to see our new @SomaLogic proteomic study on #CastlemanDisease and #TAFRO syndrome published in AJH, revealing…
+-----------------------
+.
+.
+.
+-----------------------
+Wed Nov 22 12:39:42 +0000 2017: @jeremyhirota Lol yes it is. 😀 Congrats on your new CRC @jeremyhirota
+-----------------------
 ```
 
 ## Scripting/Programming Languages
