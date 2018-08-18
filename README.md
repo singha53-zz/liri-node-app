@@ -125,7 +125,7 @@ Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
 
 4) run command from file (spotify-this-song,"I Want it That Way")
 
-```node
+```shell
 $ node liri.js do-what-it-says
 ----------------------
 Artists(s):
@@ -142,14 +142,14 @@ The Hits--Chapter One
 ----------------------
 ```
 
-## Scripting/Programming Languages
+## Programming Languages
 
-- HTML, CSS (including Bootstrap), JavaScript (jQuery, Firebase)
+- JavaScript (nodeJS) 
+- npm packages (dotenv, node-spotify-api, twitter, request, fs)
 
 ## Features
 
-- using Firebase to player game live!
-- live messaginng
+- search for tweets, songs and movies
 
 ## Contributing
 
@@ -158,12 +158,7 @@ branch. Pull requests are warmly welcome.
 
 ## Links
 
-Even though this information can be found inside the project on machine-readable
-format like in a .json file, it's good to include a summary of most useful
-links to humans using your project. You can include links like:
-
-- Game homepage: http://amritsingh.ca/RPS-Multiplayer/
-- Repository: https://github.com/singha53/RPS-Multiplayer/
+- Repository: https://github.com/singha53/https://github.com/singha53/node-liri-app/
 
 ## Licensing
 
